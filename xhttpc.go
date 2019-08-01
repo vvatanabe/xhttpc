@@ -122,7 +122,6 @@ func (c *Client) call(ctx context.Context, method, url string, body url.Values) 
 }
 
 func (c *Client) newRequest(method, url string, body url.Values) (*http.Request, error) {
-
 	var buf io.Reader
 	if body != nil {
 		buf = strings.NewReader(body.Encode())
@@ -136,7 +135,6 @@ func (c *Client) newRequest(method, url string, body url.Values) (*http.Request,
 	for k, v := range c.Header {
 		req.Header.Set(k, v)
 	}
-	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 	return req, nil
 }
 
